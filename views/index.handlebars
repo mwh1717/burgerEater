@@ -1,0 +1,34 @@
+<h1>Nom-Burgers-Nom....Nom</h1>
+
+<h2>Burgers on the grill:</h2>
+<ol>
+    {{#each burgers}}
+        {{#unless devoured}}
+            {{> burgers/burger-name devoured=false}}
+        {{/unless}}
+    {{/each}}
+</ol>
+
+
+
+<h2>Burgers in your belly:</h2>
+<ol>
+    {{#each burgers}}
+        {{#if devoured}}
+            {{ burgers_name }}
+        {{/if}}
+    {{/each}}
+</ol>
+
+
+
+<h3>Tell that chef to make a burger!</h3>
+<form class="create-form">
+    <div class="form-group">
+        <label for="burgerNameYum">What's it called?</label>
+        <input type="text" id="burgerNameYum" name="burger_name">
+    </div>
+
+    <button type="submit">Grill it!</button>
+
+</form>
