@@ -40,4 +40,17 @@ $(function () {
         }
         );
     });
+
+    $(".digest-burger").on("click", function(event) {
+        event.preventDefault();
+        var id = $(this).data("id");
+    
+        $.ajax("/api/burgers/" + id, {
+          type: "DELETE"
+        })
+        .then(function() {
+          console.log("burger digested, id " + id);
+          location.reload();
+        });
+    });
 });

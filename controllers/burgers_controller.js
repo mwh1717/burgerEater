@@ -37,4 +37,13 @@ router.put("/api/burgers/:id", function(req, res) {
     );
 });
 
+router.delete("/api/burgers/:id", function(req, res) {
+    var id = req.params.id;
+  
+    burger.deleteOne(id, function(results) {
+      console.log(results);
+      res.json(true);
+    });
+  });
+
 module.exports = router;

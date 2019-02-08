@@ -67,7 +67,16 @@ var orm = {
 
             cb(result);
         });
-    }
+    },
+
+    deleteOne: function(table, whereCol, whereVal, cb) {
+        var queryString = "DELETE FROM ?? WHERE ?? = ?";
+    
+        connection.query(queryString, [table, whereCol, whereVal], function(err, result) {
+          if (err) throw err;
+          cb(result);
+        });
+      }
 };
 
 module.exports = orm;
